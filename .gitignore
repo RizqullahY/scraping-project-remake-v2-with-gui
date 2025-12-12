@@ -1,0 +1,5 @@
+*_chapter_list/
+*_result/
+dist/
+build/
+*/__pycache__/
