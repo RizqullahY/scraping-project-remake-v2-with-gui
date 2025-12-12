@@ -7,5 +7,5 @@ def get_base_path():
         # Saat sudah menjadi EXE → pakai folder tempat EXE berada
         return os.path.dirname(os.path.abspath(sys.executable))
     else:
-        # Saat masih script → pakai folder file .py ini berada
-        return os.path.dirname(os.path.abspath(__file__))
+        # Saat masih script → pakai utils/get_exe_path.py ini berada
+        return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

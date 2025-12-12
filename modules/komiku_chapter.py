@@ -1,5 +1,3 @@
-# modules/komiku_chapter.py
-
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -10,14 +8,12 @@ BASE_DIR = get_base_path()
 OUTPUT_DIR = os.path.join(BASE_DIR, "komiku_chapter_list")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-
-def scrape_judulseries(url):
-
+def scrape_judulseries(url, log=lambda x: None):
     headers = {'User-Agent': 'Mozilla/5.0'}
     try:
         r = requests.get(url, headers=headers, timeout=10)
     except:
-        print("[ERROR] Request gagal.")
+        log("[ERROR] Request gagal.")
         return
 
     soup = BeautifulSoup(r.text, "lxml")
@@ -41,4 +37,4 @@ def scrape_judulseries(url):
     with open(output_file, "w", encoding="utf-8") as f:
         f.write("\n".join(urls))
 
-    print(f"[DONE] {len(urls)} chapter disimpan ke {output_file}")
+    log(f"[DONE] {len(urls)} chapter disimpan ke {output_file}")

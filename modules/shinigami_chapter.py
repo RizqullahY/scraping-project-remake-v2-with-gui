@@ -44,7 +44,9 @@ def fetch_title(uuid):
     return r.json().get("data", {}).get("title", uuid)
 
 
-def shinigami_scrape_series(url):
+def shinigami_scrape_series(url, log=None):
+    if log is None:
+        log = print  
 
     uuid = extract_uuid(url)
     items = fetch_all(uuid)
@@ -64,4 +66,5 @@ def shinigami_scrape_series(url):
     with open(out_file, "w", encoding="utf-8") as f:
         f.write("\n".join(chapter_urls))
 
-    print(f"[DONE] Disimpan: {out_file}")
+    log(f"[DONE] Disimpan: {out_file}")
+

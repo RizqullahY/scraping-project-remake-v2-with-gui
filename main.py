@@ -12,7 +12,7 @@ class App(ttk.Window):
         super().__init__(
             title="Manga Scraper GUI",
             themename="superhero",
-            size=(700, 400),
+            size=(700, 600),
             resizable=(False, False)
         )
         center_window(self)

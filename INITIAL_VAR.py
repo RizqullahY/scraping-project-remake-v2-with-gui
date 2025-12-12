@@ -1,3 +1,5 @@
+DEBUG = True
+
 PROJECT_CONFIG = {
     "KOMIKU": {
         "CHAPTER_LIST_FOLDER"   : "0_CHAPTER_LIST_KOMIKU",

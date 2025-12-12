@@ -14,27 +14,32 @@ os.makedirs(TXT_DIR, exist_ok=True)
 os.makedirs(OUT_DIR, exist_ok=True)
 
 
-def download_image(url, path):
+def download_image(url, path, log=None):
+    if log is None:
+        log = print
     try:
         with requests.get(url, stream=True, timeout=10) as r:
             if r.status_code == 200:
                 with open(path, "wb") as f:
                     shutil.copyfileobj(r.raw, f)
-                print(f"[OK] {os.path.basename(path)}")
+                log(f"[OK] {os.path.basename(path)}")
             else:
-                print(f"[FAIL] HTTP {r.status_code}")
+                log(f"[FAIL] HTTP {r.status_code}")
     except Exception as e:
-        print(f"[ERROR] {e}")
+        log(f"[ERROR] {e}")
 
 
-def scrape_chapter(uuid, out_folder):
+def scrape_chapter(uuid, out_folder, log=None):
+    if log is None:
+        log = print
+
     api_url = f"https://api.shngm.io/v1/chapter/detail/{uuid}"
 
     try:
         r = requests.get(api_url, timeout=10)
         data = r.json()["data"]
     except:
-        print("[ERROR] API gagal")
+        log("[ERROR] API gagal")
         return
 
     base = data["base_url"]
@@ -44,7 +49,9 @@ def scrape_chapter(uuid, out_folder):
     pad = len(str(len(images)))
     os.makedirs(out_folder, exist_ok=True)
 
-    print(f"[CHAPTER] {uuid} | {len(images)} gambar")
+    log(f"[CHAPTER] {uuid} | {len(images)} gambar")
+
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
     with ThreadPoolExecutor(max_workers=12) as exe:
         futures = []
@@ -53,15 +60,18 @@ def scrape_chapter(uuid, out_folder):
             filename = f"{str(i).zfill(pad)}.jpg"
             img_path = os.path.join(out_folder, filename)
 
-            futures.append(exe.submit(download_image, img_url, img_path))
+            futures.append(exe.submit(download_image, img_url, img_path, log))
 
         for _ in as_completed(futures):
             pass
 
-    print(f"[DONE] Chapter {uuid}")
+    log(f"[DONE] Chapter {uuid}")
 
 
-def shinigami_download_batch(txt_file):
+def shinigami_download_batch(txt_file, log=None):
+    if log is None:
+        log = print
+
     txt_path = os.path.join(TXT_DIR, txt_file)
     out_root = os.path.join(OUT_DIR, txt_file.replace(".txt", ""))
 
@@ -70,10 +80,10 @@ def shinigami_download_batch(txt_file):
     with open(txt_path, "r", encoding="utf-8") as f:
         urls = [u.strip() for u in f]
 
-    print(f"[INFO] Total chapter: {len(urls)}")
+    log(f"[INFO] Total chapter: {len(urls)}")
 
     for idx, url in enumerate(urls, 1):
         uuid = url.rstrip("/").split("/")[-1]
         chapter_folder = os.path.join(out_root, f"chapter_{idx}")
 
-        scrape_chapter(uuid, chapter_folder)
+        scrape_chapter(uuid, chapter_folder, log)
