@@ -5,6 +5,7 @@ from ui.home_view import HomeView
 from ui.komiku_view import KomikuView
 from ui.shinigami_view import ShinigamiView
 from utils.window_utils import center_window
+from INITIAL_VAR import WINDOW_WITDH, WINDOW_HEIGHT
 
 
 class App(ttk.Window):
@@ -12,7 +13,7 @@ class App(ttk.Window):
         super().__init__(
             title="Manga Scraper GUI",
             themename="superhero",
-            size=(700, 600),
+            size=(WINDOW_WITDH, WINDOW_HEIGHT),
             resizable=(False, False)
         )
         center_window(self)
