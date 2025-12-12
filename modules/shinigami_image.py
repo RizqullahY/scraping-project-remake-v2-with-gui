@@ -7,8 +7,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from utils.get_exe_path import get_base_path
 
 BASE = get_base_path()
-TXT_DIR = os.path.join(BASE, "..", "shinigami_chapter_list")
-OUT_DIR = os.path.join(BASE, "..", "shinigami_result")
+TXT_DIR = os.path.join(BASE, "shinigami_chapter_list")
+OUT_DIR = os.path.join(BASE, "shinigami_result")
 
 os.makedirs(TXT_DIR, exist_ok=True)
 os.makedirs(OUT_DIR, exist_ok=True)

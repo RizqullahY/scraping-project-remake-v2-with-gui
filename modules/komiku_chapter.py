@@ -7,7 +7,7 @@ from urllib.parse import urljoin
 from utils.get_exe_path import get_base_path
 
 BASE_DIR = get_base_path()
-OUTPUT_DIR = os.path.join(BASE_DIR, "..", "komiku_chapter_list")
+OUTPUT_DIR = os.path.join(BASE_DIR, "komiku_chapter_list")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
