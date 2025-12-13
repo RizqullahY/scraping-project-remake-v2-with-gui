@@ -3,9 +3,10 @@
 import os
 import requests
 from utils.get_exe_path import get_base_path
+from INITIAL_VAR import SHINIGAMI
 
 BASE = get_base_path()
-OUT = os.path.join(BASE, "shinigami_chapter_list")
+OUT = os.path.join(BASE, SHINIGAMI["CHAPTER_LIST_FOLDER"])
 os.makedirs(OUT, exist_ok=True)
 
 

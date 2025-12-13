@@ -4,10 +4,11 @@ from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import shutil
 from utils.get_exe_path import get_base_path
+from INITIAL_VAR import KOMIKU
 
 BASE = get_base_path()
-TXT_DIR = os.path.join(BASE,"komiku_chapter_list")
-OUT_DIR = os.path.join(BASE,"komiku_result")
+TXT_DIR = os.path.join(BASE, KOMIKU["CHAPTER_LIST_FOLDER"])
+OUT_DIR = os.path.join(BASE, KOMIKU["IMAGE_FOLDER"])
 
 os.makedirs(TXT_DIR, exist_ok=True)
 os.makedirs(OUT_DIR, exist_ok=True)

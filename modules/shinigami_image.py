@@ -5,10 +5,11 @@ import requests
 import shutil
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from utils.get_exe_path import get_base_path
+from INITIAL_VAR import SHINIGAMI
 
 BASE = get_base_path()
-TXT_DIR = os.path.join(BASE, "shinigami_chapter_list")
-OUT_DIR = os.path.join(BASE, "shinigami_result")
+TXT_DIR = os.path.join(BASE, SHINIGAMI["CHAPTER_LIST_FOLDER"])
+OUT_DIR = os.path.join(BASE, SHINIGAMI["IMAGE_FOLDER"])
 
 os.makedirs(TXT_DIR, exist_ok=True)
 os.makedirs(OUT_DIR, exist_ok=True)

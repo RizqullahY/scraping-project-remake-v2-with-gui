@@ -3,9 +3,10 @@ from bs4 import BeautifulSoup
 import os
 from urllib.parse import urljoin
 from utils.get_exe_path import get_base_path
+from INITIAL_VAR import KOMIKU
 
 BASE_DIR = get_base_path()
-OUTPUT_DIR = os.path.join(BASE_DIR, "komiku_chapter_list")
+OUTPUT_DIR = os.path.join(BASE_DIR, KOMIKU["CHAPTER_LIST_FOLDER"])
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def scrape_judulseries(url, log=lambda x: None):
