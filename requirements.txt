@@ -2,3 +2,6 @@ requests
 beautifulsoup4 
 bs4
 pyinstaller
+ttkbootstrap
+urllib3
+pillow
