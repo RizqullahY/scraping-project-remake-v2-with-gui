@@ -1,4 +1,4 @@
-name: Build and Release Scraping Manhwa Manga
+name: Build and Release Scraping Manhwa Manga Project
 
 on: 
   push:
