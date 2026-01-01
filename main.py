@@ -13,7 +13,7 @@ from INITIAL_VAR import WINDOW_WITDH, WINDOW_HEIGHT
 class App(ttk.Window):
     def __init__(self):
         super().__init__(
-            title="Manga Scraper GUI",
+            title="SCRAPING MANHWA & MANGA PROJECT by RizqullahY",
             themename="superhero",
             size=(WINDOW_WITDH, WINDOW_HEIGHT),
             resizable=(False, False)
