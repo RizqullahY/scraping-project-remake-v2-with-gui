@@ -8,10 +8,10 @@ from ui.softkomik_view import SoftkomikView
 from ui.kunmanga_view import KunmangaView
 from utils.window_utils import center_window
 from INITIAL_VAR import WINDOW_WITDH, WINDOW_HEIGHT
-from utils.get_exe_path import get_base_path
+from utils.get_exe_path import get_asset_path
 import os
 
-BASE_DIR = get_base_path()
+BASE_DIR = get_asset_path()
 ICON_PATH = os.path.join(BASE_DIR, "assets" , "logo.ico")
 
 class App(ttk.Window):
