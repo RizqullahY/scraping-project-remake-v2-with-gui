@@ -30,39 +30,39 @@
 
 #### 1. Select Manga / Manhwa
 <p align="center">
-  <img width="1365" alt="Pilih Manga"
+  <img width="350" alt="Pilih Manga"
        src="https://github.com/user-attachments/assets/2694e036-4986-4de0-b064-bde470a2f19c" />
 </p>
 
 #### 2. Copy Chapter Link
 <p align="center">
-  <img width="723" alt="Copy URL"
+  <img width="350" alt="Copy URL"
        src="https://github.com/user-attachments/assets/2a867b9c-2b98-4230-a571-21c8b458ceee" />
 </p>
 
 #### 3. Enter the URL to the Application
 <p align="center">
-  <img width="702" alt="Input URL"
+  <img width="350" alt="Input URL"
        src="https://github.com/user-attachments/assets/e2011a6c-d9e5-4df0-960d-7ecd1a08659a" />
 </p>
 
 #### 4. Select Chapter Scraping Results
 <p align="center">
-  <img width="672" alt="Select Result"
+  <img width="350" alt="Select Result"
        src="https://github.com/user-attachments/assets/529a23c5-2571-477c-89d5-08b26aac58cb" />
 </p>
 
 <p align="center">
-  <img width="389" alt="Done"
+  <img width="350" alt="Done"
        src="https://github.com/user-attachments/assets/0168d7f1-72fb-497f-ad25-7163abfc50ee" />
 </p>
 
 <p align="center">
-  <img width="687" height="450" alt="image" src="https://github.com/user-attachments/assets/6a497d49-f607-4733-a7f7-b1e1928a11cb" />
+  <img width="350" height="450" alt="image" src="https://github.com/user-attachments/assets/6a497d49-f607-4733-a7f7-b1e1928a11cb" />
 </p>
 
 <p align="center">
-  <img width="510" height="151" alt="image" src="https://github.com/user-attachments/assets/1b9d4535-a363-4081-8080-874606a5d495" />
+  <img width="350" height="151" alt="image" src="https://github.com/user-attachments/assets/1b9d4535-a363-4081-8080-874606a5d495" />
 </p>
 </details>
 
@@ -81,12 +81,12 @@
 
 #### 1. Select Manga / Manhwa
 <p align="center">
-  <img width="926" height="387" alt="image" src="https://github.com/user-attachments/assets/41b6d409-8b9e-4006-91b1-acab1061ca61" />
+  <img width="350" height="387" alt="image" src="https://github.com/user-attachments/assets/41b6d409-8b9e-4006-91b1-acab1061ca61" />
 </p>
 
 #### 2. Copy Chapter Link
 <p align="center">
-<img width="457" height="33" alt="image" src="https://github.com/user-attachments/assets/0662d0a1-f360-463f-bfde-80515dcab489" />
+<img width="350" height="33" alt="image" src="https://github.com/user-attachments/assets/0662d0a1-f360-463f-bfde-80515dcab489" />
 </p>
 
 #### Do the same as before
@@ -107,13 +107,13 @@
 
 #### 1. Select Manga / Manhwa
 <p align="center">
-<img width="1352" height="614" alt="image" src="https://github.com/user-attachments/assets/8c4699bb-4264-4161-883d-0fee19ea8f83" />
+<img width="350" height="614" alt="image" src="https://github.com/user-attachments/assets/8c4699bb-4264-4161-883d-0fee19ea8f83" />
 
 </p>
 
 #### 2. Copy Chapter Link
 <p align="center">
-<img width="492" height="28" alt="image" src="https://github.com/user-attachments/assets/85bde731-bae9-47ea-af24-a5ad7c845b77" />
+<img width="350" height="28" alt="image" src="https://github.com/user-attachments/assets/85bde731-bae9-47ea-af24-a5ad7c845b77" />
 </p>
 
 #### Do the same as before
