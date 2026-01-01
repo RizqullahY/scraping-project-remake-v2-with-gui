@@ -12,7 +12,7 @@ from utils.get_exe_path import get_base_path
 import os
 
 BASE_DIR = get_base_path()
-ICON_PATH = os.path.join(BASE_DIR, "logo.ico")
+ICON_PATH = os.path.join(BASE_DIR, "assets" , "logo.ico")
 
 class App(ttk.Window):
     def __init__(self):

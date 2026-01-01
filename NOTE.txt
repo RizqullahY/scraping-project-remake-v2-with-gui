@@ -1,5 +1,4 @@
-https://komiku.org/manga/villainess-streamer/
-https://08.shinigami.asia/series/84561956-c987-491d-a189-ba1af3c22810
-
-
 pyinstaller --onefile --console auto_zip_the_series.py
+pyinstaller --onefile --noconsole --name "Scraping Manhwa Manga" --icon assets/logo.ico --add-data "assets;assets" main.py
+
+pyinstaller --onefile --noconsole --name "Scraping Manhwa Manga" --icon assets/logo.ico --add-data "assets;assets" main.py

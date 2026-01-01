@@ -8,7 +8,7 @@ from utils.get_exe_path import get_base_path
 
 
 BASE_DIR = get_base_path()
-LOGO_PATH = os.path.join(BASE_DIR, "logo.png")
+LOGO_PATH = os.path.join(BASE_DIR, "assets" ,"logo.png")
 
 
 class HomeView(ttk.Frame):
