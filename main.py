@@ -8,7 +8,11 @@ from ui.softkomik_view import SoftkomikView
 from ui.kunmanga_view import KunmangaView
 from utils.window_utils import center_window
 from INITIAL_VAR import WINDOW_WITDH, WINDOW_HEIGHT
+from utils.get_exe_path import get_base_path
+import os
 
+BASE_DIR = get_base_path()
+ICON_PATH = os.path.join(BASE_DIR, "logo.ico")
 
 class App(ttk.Window):
     def __init__(self):
@@ -18,6 +22,10 @@ class App(ttk.Window):
             size=(WINDOW_WITDH, WINDOW_HEIGHT),
             resizable=(False, False)
         )
+        
+        if os.path.exists(ICON_PATH):
+            self.iconbitmap(ICON_PATH)
+
         center_window(self)
 
         self.notebook = ttk.Notebook(self)
