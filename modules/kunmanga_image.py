@@ -40,7 +40,7 @@ def scrape_by_id_range(manga_id, start_chapter, end_chapter, log=print):
         found_any = False
 
         # ✅ FIX 1: folder chapter
-        chapter_dir = os.path.join(OUTPUT_DIR, manga_id, f"Chapter_{chapter}")
+        chapter_dir = os.path.join(OUTPUT_DIR, manga_id, f"chapter_{chapter}")
         os.makedirs(chapter_dir, exist_ok=True)
 
         while True:
