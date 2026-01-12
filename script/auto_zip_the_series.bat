@@ -2,7 +2,14 @@
 setlocal enabledelayedexpansion
 
 echo ===============================
-echo PURE CMD CHAPTER ZIPPER
+echo Project_Folder
+echo ^|-- 0_CHAPTER_LIST_SHINIGAMI
+echo ^|   ^-- Pick_Me_Up.txt
+echo ^|-- 0_IMAGE_SHINIGAMI
+echo ^|   ^-- Pick_Me_Up
+echo ^|       ^-- chapter_1
+echo ^|           ^-- 001.jpg
+echo ^-- auto_zip_th_series.bat 
 echo ===============================
 
 set /p SERIES=Masukkan path folder series: 
