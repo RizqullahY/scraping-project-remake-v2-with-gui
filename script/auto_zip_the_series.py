@@ -2,9 +2,16 @@ import re
 import zipfile
 from pathlib import Path
 import sys
-import questionary
 from itertools import islice
 from tqdm import tqdm
+
+# ===========================================================
+# OPTIONAL: questionary (aman kalau tidak ada)
+# ===========================================================
+try:
+    import questionary
+except ImportError:
+    questionary = None
 
 
 # ===========================================================
@@ -17,11 +24,45 @@ else:
 
 
 # ===========================================================
+# HELPER DETECT EXE
+# ===========================================================
+def is_exe():
+    return getattr(sys, "frozen", False)
+
+
+# ===========================================================
+# SAFE INPUT WRAPPER
+# ===========================================================
+def ask_text(prompt):
+    if is_exe() or questionary is None:
+        return input(f"{prompt}: ").strip()
+    else:
+        return questionary.text(prompt).ask()
+
+
+def ask_select(prompt, choices):
+    if is_exe() or questionary is None:
+        print(f"\n{prompt}")
+        for i, c in enumerate(choices, 1):
+            print(f"{i}. {c}")
+        while True:
+            try:
+                idx = int(input("Pilih nomor: "))
+                if 1 <= idx <= len(choices):
+                    return choices[idx - 1]
+            except ValueError:
+                pass
+            print("❌ Input tidak valid.")
+    else:
+        return questionary.select(prompt, choices=choices).ask()
+
+
+# ===========================================================
 # BANNER
 # ===========================================================
 def banner():
     print("\n" + "=" * 60)
-    print("📦  CHAPTER ZIPPER TOOL  |  FAST • CLEAN • PROGRESS")
+    print("📦  CHAPTER ZIPPER TOOL  |  FAST • CLEAN • SAFE EXE")
     print("=" * 60)
 
 
@@ -48,7 +89,6 @@ def zip_batch(series_dir, chapters, batch):
     zip_path = series_dir / zip_name
     wrapper = f"{prefix}_{start_num}-{end_num}"
 
-    # kumpulin file dulu (biar tqdm akurat)
     files = []
     for num in batch:
         for f in chapters[num].rglob("*"):
@@ -75,9 +115,13 @@ def mode_range(series_dir, chapters):
     print(f"\n📊 Chapter ditemukan: {len(chapter_nums)}")
     print(f"📘 Range tersedia: {chapter_nums[0]} - {chapter_nums[-1]}")
 
-    start_range = int(questionary.text("▶ Mulai dari chapter?").ask())
-    end_range = int(questionary.text("▶ Sampai chapter?").ask())
-    batch_size = int(questionary.text("▶ Per ZIP berapa chapter?").ask())
+    try:
+        start_range = int(ask_text("▶ Mulai dari chapter"))
+        end_range = int(ask_text("▶ Sampai chapter"))
+        batch_size = int(ask_text("▶ Per ZIP berapa chapter"))
+    except ValueError:
+        print("❌ Input harus angka.")
+        return
 
     filtered = [c for c in chapter_nums if start_range <= c <= end_range]
     if not filtered:
@@ -102,10 +146,10 @@ def choose_series_folder(base_dir):
         print("❌ Folder series tidak ditemukan.")
         return None
 
-    selected = questionary.select(
+    selected = ask_select(
         "📂 Pilih folder series:",
-        choices=[str(p) for p in candidates]
-    ).ask()
+        [str(p) for p in candidates]
+    )
 
     return Path(selected)
 
@@ -132,14 +176,14 @@ def main():
 
         mode_range(series_dir, chapters)
 
-        action = questionary.select(
+        action = ask_select(
             "\n🔁 Pilih aksi selanjutnya:",
-            choices=[
+            [
                 "📦 Zip lagi (range baru)",
                 "📂 Pilih folder series lain",
                 "🚪 Keluar"
             ]
-        ).ask()
+        )
 
         if "folder" in action:
             series_dir = None
