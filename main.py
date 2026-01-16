@@ -48,4 +48,9 @@ class App(ttk.Window):
 
 if __name__ == "__main__":
     app = App()
+    try:
+        import pyi_splash # pyright: ignore[reportMissingModuleSource]
+        pyi_splash.close()
+    except Exception:
+        pass
     app.mainloop()
