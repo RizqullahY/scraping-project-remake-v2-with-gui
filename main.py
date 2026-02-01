@@ -6,6 +6,7 @@ from ui.komiku_view import KomikuView
 from ui.shinigami_view import ShinigamiView
 from ui.softkomik_view import SoftkomikView
 from ui.kunmanga_view import KunmangaView
+from ui.komikindo_view import KomikindoView
 from utils.window_utils import center_window
 from INITIAL_VAR import WINDOW_WITDH, WINDOW_HEIGHT
 from utils.get_exe_path import get_asset_path
@@ -37,6 +38,7 @@ class App(ttk.Window):
         self.shini_tab = ShinigamiView(self.notebook, self)
         self.softkomik_tab = SoftkomikView(self.notebook, self)
         self.kunmanga_tab = KunmangaView(self.notebook, self)
+        self.komikindo_tab = KomikindoView(self.notebook, self)
 
         # TAMBAH TAB
         self.notebook.add(self.home_tab, text="Home")
@@ -44,6 +46,7 @@ class App(ttk.Window):
         self.notebook.add(self.shini_tab, text="Shinigami")
         self.notebook.add(self.softkomik_tab, text="Softkomik")
         self.notebook.add(self.kunmanga_tab, text="Kunmanga")
+        self.notebook.add(self.komikindo_tab, text="Komikindo")
 
 
 if __name__ == "__main__":
