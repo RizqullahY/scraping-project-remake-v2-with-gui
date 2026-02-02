@@ -7,6 +7,17 @@ BASE_DIR = get_base_path()
 OUTPUT_DIR = os.path.join(BASE_DIR, SOFTKOMIK["CHAPTER_LIST_FOLDER"])
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
+def format_filename(slug: str) -> str:
+    words = slug.replace("-", " ").split()
+
+    blacklist = {"bahasa", "indonesia"}
+    words = [w for w in words if w not in blacklist]
+
+    formatted = "_".join(w.capitalize() for w in words)
+
+    return formatted + ".txt"
+
+
 
 def get_slug(url: str) -> str:
     return url.rstrip("/").split("/")[-1]
@@ -35,6 +46,8 @@ def scrape_judulseries(url, log=lambda x: None):
         log("[ERROR] Chapter kosong / struktur API berubah")
         return
 
+    chapters = list(reversed(chapters))
+
     chapter_urls = []
 
     for ch in chapters:
@@ -49,7 +62,7 @@ def scrape_judulseries(url, log=lambda x: None):
 
     out_file = os.path.join(
         OUTPUT_DIR,
-        slug.replace("-", "_") + ".txt"
+        format_filename(slug)
     )
 
     with open(out_file, "w", encoding="utf-8") as f:
